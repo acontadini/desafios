@@ -1,7 +1,7 @@
 O desafio em questão necessitava de manipulação de strings. Com isso o desafio era limitar a quantidade de caracteres em 40 por linha sem 
-cortar palavras. A estratégia que utilizei foi usar um laço de repetição while que imprimia apenas os 40 caracteres em cada linha.
-Mas como não poderia cortar palavras, tive que criar dois casos. O primeiro era se o caractere na posição de numero 40 fosse um espaço.
-Se fosse um espaço, bastava eu imprimir os 40 caracteres e atualizar o inicio e o final das minhas variáveis de controle.
+cortar palavras. A estratégia que utilizei foi usar um laço de repetição for que imprimia apenas os 40 caracteres em cada linha.
+Mas como não poderia cortar palavras, tive que criar dois casos. O primeiro era, se o caractere na posição de numero 40 fosse um espaço.
+Se fosse um espaço, bastava imprimir os 40 caracteres e atualizar o inicio e o final das minhas variáveis de controle(ini e fim).
 O segundo caso seria se a posição de número 40 fosse um caractere diferente de espaco. Nesse caso eu deveria voltar as posições da string 
 até achar um espaço vazio e imprimir apenas os caracteres até esse espaço. Depois atualizava minhas variáveis de controle inicio e fim, 
 para continuar a percorrer a string com isso o programa imprimia o texto na forma que o desafio queria.
