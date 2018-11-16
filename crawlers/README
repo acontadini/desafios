@@ -3,9 +3,19 @@ Parte 1:
 Caso queira adicionar ou editar os subreddits, basta editar a variável "subreddits".
 O código encontra-se todo comentado para fácil entendimento.
 
+Para a execução desse desafio foi necessário aprender um pouco da biblioteca Beautifull Soup e da biblioteca request.
+Tive problemas com erro http 329 too many request, para soluciona-lo adicionei mais um atributo na função 
+requests.get(my_url, headers = {'User-agent': 'your bot 0.1'} que foi o headers, isso solucionou meu problema.
+
+Outro desafio que tive foi que alguns subreddits possuiam a classe título com nomes diferentes, para solucionar esse desafio foi criado 
+um "if" no código para tratar esses casos.
+
 
 Parte 2 :
 
 Para que a parte 2 funcione é necessário que o usuário procure pelo bot Idwall-Andrey no telegram. e escreva
 o comando /NadaPraFazer [+ Lista de subrredits] (ex.: /NadaPraFazer programming;dogs;brazil).
 O código tambem encontra-se todo comentado para fácil entendimento.
+
+Para a execução desse desafio foi necessário aprender um pouco da biblioteca telepot e criar um bot no telegram usando BotFather.
+com a biblioteca telegram biblioteca foi possível mandar e receber as mensagens do telegram.
