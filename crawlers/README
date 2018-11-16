@@ -1,0 +1,11 @@
+Parte 1:
+
+Caso queira adicionar ou editar os subreddits, basta editar a variável "subreddits".
+O código encontra-se todo comentado para fácil entendimento.
+
+
+Parte 2 :
+
+Para que a parte 2 funcione é necessário que o usuário procure pelo bot Idwall-Andrey no telegram. e escreva
+o comando /NadaPraFazer [+ Lista de subrredits] (ex.: /NadaPraFazer programming;dogs;brazil).
+O código tambem encontra-se todo comentado para fácil entendimento.
