@@ -10,7 +10,7 @@ for subreddit in subs :
     upvotelist = []
     my_url = 'https://old.reddit.com/r/' + subreddit + '/'
 
-    # abrir a conecxão com o servidor
+    # abrir a conexão com o servidor
     page_html = requests.get(my_url, headers = {'User-agent': 'your bot 0.1'})
     html = page_html.text
     # html parsing
@@ -37,13 +37,14 @@ for subreddit in subs :
 
     # usando a função findAll para procurar todos os títulos, das threads no site
     titles = page_soup.findAll("a",{"class":"title may-blank "})
+    #Alguns titulos de ssubreddits apresentavam a classe diferente, por isso foi usado esse if, para tratar esses casos
     if len(titles)==1:
         titles = page_soup.findAll("a", {"class": "title may-blank outbound"})
 
     for cont in range(0,len(upvotes)):
 
-        if(upvotelist[cont]>5000):
-            aux = 1 #variavel de controle criada para saber se existem upvotes maiores que 5000 ou não
+        if(upvotelist[cont]>=5000):
+            aux = 1 #Caso exista 5000 ou mais upvotes a variável "aux" recebe "1" para controle
 
             print("O subreddits é : ", subreddit)
             print("Quantidade de upvotes é: ",upvotelist[cont])
