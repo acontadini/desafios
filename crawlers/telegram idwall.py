@@ -2,7 +2,7 @@ import telepot
 from bs4 import BeautifulSoup as soup
 import requests
 
-#token para o robo
+#token para o bot (Idwall-Andrey)
 token = "788528548:AAGhgmDUNId8RGF6t2B1TyVEPD-tyr7gim8"
 
 #conexão com o bot
@@ -20,7 +20,7 @@ def buscaDados(msg,id):
 
     for subreddit in subs :
         aux = 0 #variavel de controle criada para saber se existem upvotes maiores que 5000 ou não
-        upvotelist = []
+        upvotelist = [] #lista com os upvotes
         my_url = 'https://old.reddit.com/r/' + subreddit + '/'
 
         # abrir a conecxão com o servidor
@@ -32,7 +32,7 @@ def buscaDados(msg,id):
         #usando a função findAll para procurar todos os upvotes no site
         upvotes =page_soup.findAll("div",{"class":"score unvoted"})
 
-        #como os dados vindos do findAll estao em formato de texto.Foi necessário esse procedimento para tranformar os dados em inteiros
+        #como os dados vindos do findAll estao em formato de texto. Foi necessário esse procedimento para tranformar os dados em inteiros
         for container in upvotes :
             upvote = container.text
             # Caso a potuação esteja com '•', substitui por 0
@@ -50,13 +50,16 @@ def buscaDados(msg,id):
 
         # usando a função findAll para procurar todos os títulos, das threads no site
         titles = page_soup.findAll("a",{"class":"title may-blank "})
+        
+        #Alguns titulos de ssubreddits apresentavam a classe diferente, por isso foi usado esse if, para tratar esses casos
         if len(titles) == 1:
             titles = page_soup.findAll("a", {"class": "title may-blank outbound"})
+        
         for cont in range(0,len(upvotes)):
 
-            if(upvotelist[cont]>5000):
+            if(upvotelist[cont]>=5000):
 
-                aux = 1 #variavel de controle criada para saber se existem upvotes maiores que 5000 ou não
+                aux = 1 #Caso exista 5000 ou mais upvotes a variável "aux" recebe "1" para controle
                 bot.sendMessage(id,"----------------------------------------------------------------------------\n" +
                                 "O subreddits é : "+ subreddit + "\n" + "Quantidade de upvotes é: "
                                 + str(upvotelist[cont]) + "\n" + "O título da thread é : " + titles[cont].text +
